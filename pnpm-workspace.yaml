@@ -1,0 +1,5 @@
+---
+packages:
+  - nest-backend
+  - packages/*
+  - user-auth
