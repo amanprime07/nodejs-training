@@ -6,6 +6,6 @@ import { PostModule } from '../post/post.module';
 @Module({
   imports: [PostModule],
   providers: [AuthorsService, AuthorsResolver],
-  exports: [AuthorsResolver],
+  exports: [AuthorsResolver, AuthorsService],
 })
 export class AuthorsModule {}

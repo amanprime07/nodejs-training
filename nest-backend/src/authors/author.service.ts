@@ -13,6 +13,10 @@ export class AuthorsService {
   }
 
   find(authorIds: [number]) {
-    return this.authors.filter((author) => authorIds.includes(author.id));
+    return Promise.resolve(
+      authorIds.map((id) =>
+        this.authors.filter((author) => id === author.id),
+      ) || null,
+    );
   }
 }

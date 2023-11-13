@@ -10,8 +10,8 @@ export class PostsService {
     { authorId: 2, id: 4, title: 'Hello World' },
   ];
 
-  findAllByAuthorId(authorId: number): Post[] {
-    return this.posts.filter((post) => post.authorId === authorId);
+  findAllByIds(postIds: [number]): Post[] {
+    return this.posts.filter((post) => postIds.includes(post.id));
   }
 
   findAllByAuthorIds(authorIds: [number]): Promise<Post[][]> {

@@ -13,7 +13,7 @@ import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin
 import { AuthorsModule } from './authors/authors.module';
 import { DataloaderService } from './dataloader/dataloader.service';
 import { DataloaderModule } from './dataloader/dataloader.module';
-import { PostModule } from './post/post.module';
+import depthLimit from 'graphql-depth-limit';
 
 @Module({
   imports: [
@@ -22,6 +22,7 @@ import { PostModule } from './post/post.module';
       imports: [DataloaderModule],
       useFactory: (dataloaderService: DataloaderService) => {
         return {
+          validationRules: [depthLimit(4)],
           autoSchemaFile: true,
           playground: false,
           context: () => ({
@@ -44,7 +45,6 @@ import { PostModule } from './post/post.module';
       autoLoadEntities: true,
     }),
     TypeOrmModule.forFeature([UserEntity]),
-    AuthorsModule,
   ],
   controllers: [AppController, TodoController, UsersController],
   providers: [AppService, TodoService, UsersService],
