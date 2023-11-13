@@ -45,7 +45,6 @@ import { PostModule } from './post/post.module';
     }),
     TypeOrmModule.forFeature([UserEntity]),
     AuthorsModule,
-    PostModule,
   ],
   controllers: [AppController, TodoController, UsersController],
   providers: [AppService, TodoService, UsersService],
