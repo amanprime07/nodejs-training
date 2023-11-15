@@ -10,7 +10,6 @@ import { UsersService } from './services/user.service';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
-import { AuthorsModule } from './authors/authors.module';
 import { DataloaderService } from './dataloader/dataloader.service';
 import { DataloaderModule } from './dataloader/dataloader.module';
 import depthLimit from 'graphql-depth-limit';
