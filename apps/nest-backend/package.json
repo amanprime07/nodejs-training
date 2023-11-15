@@ -37,7 +37,6 @@
     "validation": "workspace:*"
   },
   "devDependencies": {
-    "@nestjs/cli": "^10.2.0",
     "@nestjs/schematics": "^10.0.2",
     "@nestjs/swagger": "^7.1.14",
     "@nestjs/testing": "^10.2.7",
