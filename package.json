@@ -13,10 +13,10 @@
   "keywords": [],
   "author": "amaprime07@gmail.com",
   "devDependencies": {
-    "@nestjs/cli": "^10.2.1"
+    "@nestjs/cli": "^10.4.9"
   },
   "engines": {
-    "node": "^v20.9.0",
-    "pnpm": "^8.9.2"
+    "node": "^v23.6.1",
+    "pnpm": "^v9.15.4"
   }
 }
