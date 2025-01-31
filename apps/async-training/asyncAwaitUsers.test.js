@@ -32,7 +32,7 @@ describe("test async await save users", () => {
     await saveUsers();
 
     let data = fs.readFile(`${__dirname}/asyncAwaitUsers.csv`, "utf-8");
-    expect(data).resolve.toBe(
+    await expect(data).resolves.toBe(
       "id, email, first_name, last_name, avatar\n1, test@abc.com, test, test, test\n"
     );
   });
