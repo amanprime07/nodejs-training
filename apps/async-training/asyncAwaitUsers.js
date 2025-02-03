@@ -3,7 +3,7 @@ const fs = require("fs").promises;
 
 const saveToFile = (data) => {
   return fs.writeFile(`${__dirname}/asyncAwaitUsers.csv`, data);
-}
+};
 
 axios.defaults.baseURL = "https://reqres.in";
 
@@ -15,7 +15,7 @@ const saveUsers = async () => {
     console.log("File written successfully to asyncAwaitUsers.csv");
   } catch (error) {
     console.error(`Error occurred: ${error.message}`);
-    throw error
+    throw error;
   }
 };
 
@@ -27,4 +27,4 @@ const formatData = (data) => {
   return users;
 };
 
-module.exports = saveUsers;
+module.exports = { saveUsers };
