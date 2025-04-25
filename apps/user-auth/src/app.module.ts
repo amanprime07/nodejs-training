@@ -11,7 +11,7 @@ import { AuthModule } from './auth/auth.module';
       // apiKey: 'someKey',
       appInfo: {
         // Learn more about this on https://supertokens.com/docs/emailpassword/appinfo
-        appName: 'c2fo-treds',
+        appName: 'training',
         apiDomain: 'http://localhost:3000',
         websiteDomain: 'http://localhost:8080',
         apiBasePath: '/auth',

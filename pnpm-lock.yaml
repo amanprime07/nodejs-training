@@ -25,6 +25,8 @@ importers:
         specifier: ^29.7.0
         version: 29.7.0(@types/node@20.17.16)(ts-node@10.9.2(@types/node@20.17.16)(typescript@5.7.3))
 
+  apps/event-emitters: {}
+
   apps/first-server:
     dependencies:
       http:
@@ -112,6 +114,8 @@ importers:
       typescript:
         specifier: ^4.7.4
         version: 4.9.5
+
+  apps/interface.ai: {}
 
   apps/nest-backend:
     dependencies:
