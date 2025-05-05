@@ -33,9 +33,6 @@ importers:
       commander:
         specifier: ^13.1.0
         version: 13.1.0
-      global:
-        specifier: link:../../../Library/pnpm/global/5/node_modules/global
-        version: link:../../../Library/pnpm/global/5/node_modules/global
     devDependencies:
       '@types/node':
         specifier: ^22.15.2

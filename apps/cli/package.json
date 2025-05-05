@@ -23,7 +23,6 @@
   },
   "dependencies": {
     "@task-tracker/types": "workspace:^",
-    "commander": "^13.1.0",
-    "global": "link:../../../Library/pnpm/global/5/node_modules/global"
+    "commander": "^13.1.0"
   }
 }
