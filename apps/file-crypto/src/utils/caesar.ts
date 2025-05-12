@@ -1,3 +1,5 @@
+import { Transform } from "stream";
+
 export function encryptCaesar(text: string, shiftValue: number): string {
   let encText = "";
   const shift = shiftValue % 26; // Ensure the shift is within the range of 0-25
@@ -30,6 +32,28 @@ export function decryptCaesar(text: string, shiftValue: number): string {
     }
   }
   return decText;
+}
+
+export function encryptTransform(shift: number): Transform {
+  return new Transform({
+    decodeStrings: false, // process as UTF-8 strings,
+    transform(chunk, _, callback) {
+      const input = chunk.toString();
+      const output = encryptCaesar(input, shift);
+      callback(null, output);
+    },
+  });
+}
+
+export function decryptTransform(shift: number): Transform {
+  return new Transform({
+    decodeStrings: false, // process as UTF-8 strings,
+    transform(chunk, _, callback) {
+      const input = chunk.toString();
+      const output = decryptCaesar(input, shift);
+      callback(null, output);
+    },
+  });
 }
 
 // console.log(process.argv);
