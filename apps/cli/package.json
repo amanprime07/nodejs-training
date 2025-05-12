@@ -10,7 +10,7 @@
     "prebuild": "rimraf dist",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "dev": "ts-node src/index.ts"
+    "dev": "pnpm -F cli build && ts-node src/index.ts"
   },
   "keywords": [],
   "author": "",
@@ -22,7 +22,9 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
+    "@prisma/client": "^6.7.0",
     "@task-tracker/types": "workspace:^",
-    "commander": "^13.1.0"
+    "commander": "^13.1.0",
+    "prisma": "^6.7.0"
   }
 }

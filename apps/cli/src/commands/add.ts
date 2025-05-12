@@ -10,7 +10,7 @@ addCommand
   .usage("pnpm cli add <task description>")
   .action(addTask);
 
-export function addTask(description: string) {
+function addTask(description: string) {
   const tasks = loadTasks();
   const task: Task = {
     id: Date.now(),
