@@ -1,5 +1,5 @@
 import { Command } from "commander";
-import { loadTasks, saveTasks } from "../lib/storage";
+import { deleteTaskById, loadTaskById } from "../lib/db";
 
 export const deleteCommand = new Command("delete");
 
@@ -9,15 +9,12 @@ deleteCommand
   .usage("pnpm cli delete <taskId>")
   .action(deleteTask);
 
-function deleteTask(taskId: number) {
-  const tasks = loadTasks();
-  const idx = tasks.findIndex((t) => t.id == taskId);
-
-  if (idx !== -1) {
-    tasks.splice(idx, 1);
-    console.log(`Task with ID ${taskId} has been deleted.`);
-    saveTasks(tasks)
-  } else {
-    console.error(`Task with ID ${taskId} not found.`);
+async function deleteTask(taskId: number) {
+  const taskToDelete = await loadTaskById(taskId);
+  if (!taskToDelete) {
+    console.log("❗ Task not found.");
+    return;
   }
+  deleteTaskById(taskId);
+  console.log(`🗑️ Task "${taskToDelete.description}" deleted.`);
 }

@@ -1,23 +1,30 @@
-import { Task, TaskStatus } from "@task-tracker/types";
-import { loadTasks, saveTasks } from "../lib/storage";
+import { Priority, Task, TaskStatus } from "@task-tracker/types";
+// import { loadTasks, saveTasks } from "../lib/storage";
 import { Command } from "commander";
+import { createTask } from "../lib/db";
 
 export const addCommand = new Command("add");
 
 addCommand
-  .description("Add a new Task")
-  .argument("<description>", "Task Description")
+  .description("Create a new Task")
+  .requiredOption("-t, --title <title>", "Task Title")
+  .option("-d, --dueDate <dueDate>", "Due Date (YYYY-MM-DD)")
+  .option("-p, --priority <priority>", "Priority (LOW, MEDIUM, HIGH)")
   .usage("pnpm cli add <task description>")
-  .action(addTask);
+  .action(async (options) => {
+    await addTask(options.title, options.priority?.toLowerCase(), options.dueDate)
+  });
 
-function addTask(description: string) {
-  const tasks = loadTasks();
+async function addTask(description: string, priority?: string, dueDate?: string) {
+  // const tasks = loadTasks();
   const task: Task = {
     id: Date.now(),
     description,
     status: TaskStatus.Pending,
+    priority: priority as Priority,
+    dueDate: dueDate
   };
-  tasks.push(task);
-  saveTasks(tasks);
+  // tasks.push(task);
+  createTask(task);
   console.log("✅ Task added:", task.description);
 }

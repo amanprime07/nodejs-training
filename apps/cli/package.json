@@ -10,7 +10,7 @@
     "prebuild": "rimraf dist",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "dev": "pnpm -F cli build && ts-node src/index.ts"
+    "dev": "pnpm -F cli... build && ts-node src/index.ts"
   },
   "keywords": [],
   "author": "",

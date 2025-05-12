@@ -10,6 +10,23 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite" //"postgresql"
   url      = env("DATABASE_URL")
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+
+model Task {
+  id        Int      @id @default(autoincrement())
+  title     String
+  status    String   // Could be "pending", "completed"
+  dueDate   DateTime?
+  priority  Priority?   // "low", "medium", "high"
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

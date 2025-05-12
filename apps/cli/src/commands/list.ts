@@ -1,54 +1,36 @@
 import { TaskStatus } from "@task-tracker/types";
 import { Command } from "commander";
-import { loadTasks } from "../lib/storage";
+import { loadTasks } from "../lib/db";
+import { parseStatus } from "../utils/taskUtils";
 
 interface ListOptions {
   status?: "pending" | "completed";
 }
 
-
 export const listCommand = new Command("list");
 
 listCommand
   .description("List All tasks")
-  .option("-s, --status <status>", "Filters tasks by status (pending/completed)")
-  .action((options) => {
-    listTasks(options);
+  .option(
+    "-s, --status <status>",
+    "Filters tasks by status (pending/completed)"
+  )
+  .action(async (options) => {
+    await listTasks(options);
   });
 
-function listTasks(options: ListOptions) {
-  const tasks = loadTasks();
+async function listTasks(options: ListOptions) {
+  const tasks = await loadTasks(parseStatus(options.status));
 
-  var filteredTasks = tasks;
-  const status = parseStatus(options.status);
-  if (status) {
-    filteredTasks = filteredTasks.filter((t) => t.status === status);
-  }
-
-  if (!filteredTasks) {
+  if (!tasks || tasks.length === 0) {
     console.log("📭 No tasks found.");
     return;
   }
-  filteredTasks.forEach((task) => {
+  tasks.forEach((task) => {
     console.log(
       `${task.status === TaskStatus.Completed ? "✔️" : "❌"} ${task.id} - ${
         task.description
       }`
     );
   });
-}
-
-function parseStatus(input: string | undefined): TaskStatus | undefined {
-  if (!input) {
-    return undefined;
-  }
-
-  switch (input.toLowerCase()) {
-    case "pending":
-      return TaskStatus.Pending;
-    case "completed":
-      return TaskStatus.Completed;
-    default:
-      return undefined;
-  }
 }
