@@ -9,7 +9,8 @@
             "type": "node",
             "request": "launch",
             "runtimeExecutable": "node",
-            "program": "${file}"
+            "program": "${file}",
+            "args": ["a", "4"]
         },
         {
             "type": "node-terminal",
