@@ -1,9 +1,9 @@
 import { Command } from "commander";
 import { DencoderOptions } from "../model/options";
-import { encryptCaesar, encryptTransform } from "../utils/caesar";
 import { getFileName, readFile, writeFile } from "../utils/syncFile";
-import { closeFile, openFile, writeToFile } from "../utils/asyncFile";
-import { createPipeline, readStream, writeStream } from "../utils/streamFile";
+import { openFile, writeToFile, closeFile } from "../utils/asyncFile";
+import { encryptCaesar, encryptTransform } from "../utils/caesar";
+import { readStream, writeStream, createPipeline } from "../utils/streamFile";
 
 export const encryptCommand = new Command("encrypt")
   .description("Encrypt a file")
