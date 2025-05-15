@@ -115,7 +115,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/Users/amangupta/Documents/practice/nodejs-training/apps/mcp-postgres/src/generated/prisma",
+      "value": "/Users/amangupta/Documents/practice/nodejs-training/apps/ai-integration-sample/src/generated/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -129,7 +129,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/Users/amangupta/Documents/practice/nodejs-training/apps/mcp-postgres/prisma/schema.prisma",
+    "sourceFilePath": "/Users/amangupta/Documents/practice/nodejs-training/apps/ai-integration-sample/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -143,11 +143,12 @@ const config = {
     "db"
   ],
   "activeProvider": "sqlite",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "file:./../dev.db"
+        "value": null
       }
     }
   },

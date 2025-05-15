@@ -1,7 +1,7 @@
 {
-  "name": "mcp-postgres",
+  "name": "ai-integration-sample",
   "version": "1.0.0",
-  "description": "An MCP server to query postgres database",
+  "description": "An integration step for AI.",
   "main": "index.js",
   "scripts": {
     "prebuild": "rimraf dist",
