@@ -4,17 +4,21 @@
   "description": "An MCP server to query postgres database",
   "main": "index.js",
   "scripts": {
-    "prebuild":"rimraf dist",
-    "build":"tsc",
+    "prebuild": "rimraf dist",
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ts-node src/index.ts"
+    "dev": "ts-node src/index.ts",
+    "seed": "ts-node scripts/seed.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@prisma/client": "^6.7.0",
     "dotenv": "^16.5.0",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "openai": "^4.98.0",
+    "prisma": "^6.7.0"
   },
   "devDependencies": {
     "@types/express": "^5.0.1",
