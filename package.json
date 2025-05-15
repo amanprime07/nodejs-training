@@ -1,5 +1,5 @@
 {
-  "name": "fullstack",
+  "name": "nodejs-training",
   "version": "1.0.0",
   "description": "A fullstack example of a pnpm workspace.",
   "main": "index.js",
@@ -16,7 +16,7 @@
     "@nestjs/cli": "^10.4.9"
   },
   "engines": {
-    "node": "^v20.9.0",
+    "node": "^v22.15.0",
     "pnpm": "^v10.10.0"
   }
 }

@@ -1,12 +1,14 @@
 {
-    "compilerOptions": {
-      "target": "ES2020",
-      "module": "commonjs",
-      "strict": true,
-      "esModuleInterop": true,
-      "moduleResolution": "node",
-      "baseUrl": ".",
-      // "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
-    }
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    // "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
+    "sourceMap": true,
+    "rootDir": "./src" /* Specify the root folder within your source files. */,
+    "baseUrl": "./src" /* Specify the base directory to resolve non-relative module names. */,
+    "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */,
   }
-  
+}
