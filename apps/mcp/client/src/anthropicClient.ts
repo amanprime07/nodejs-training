@@ -6,24 +6,16 @@ import {
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
 import readline from "readline/promises";
-import dotenv from "dotenv";
 
-dotenv.config();
-
-const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
-if (!ANTHROPIC_API_KEY) {
-  throw new Error("ANTHROPIC_API_KEY is not set");
-}
-
-export class MCPClient {
+export class AnthropicMCPClient {
   private mcp: Client;
   private anthropic: Anthropic;
   private transport: StdioClientTransport | null = null;
   private tools: Tool[] = [];
 
-  constructor() {
+  constructor(key: string) {
     this.anthropic = new Anthropic({
-      apiKey: ANTHROPIC_API_KEY,
+      apiKey: key,
     });
     this.mcp = new Client({ name: "mcp-client-cli", version: "1.0.0" });
   }

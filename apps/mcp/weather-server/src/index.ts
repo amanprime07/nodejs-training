@@ -17,7 +17,7 @@ const server = new McpServer({
 
 // Register weather tools
 server.tool(
-  "get-alerts",
+  "getAlerts", // openai does not support - in tools name.
   "Get weather alerts for a state",
   {
     state: z.string().length(2).describe("Two-letter state code (e.g. CA, NY)"),
@@ -65,7 +65,7 @@ server.tool(
 );
 
 server.tool(
-  "get-forecast",
+  "getForecast", // openai does not support - in tools name.
   "Get weather forecast for a location",
   {
     latitude: z.number().min(-90).max(90).describe("Latitude of the location"),
