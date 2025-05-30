@@ -91,7 +91,7 @@ export class OpenAiMCPClient {
       tool_choice: "auto",
       // stream: true
     });
-    console.log(JSON.stringify(response, null, 2));
+    // console.log(JSON.stringify(response, null, 2));
     const finalText = [];
     const toolResults = [];
 
