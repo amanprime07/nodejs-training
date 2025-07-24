@@ -26,7 +26,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
   const q = url.searchParams.get("q");
   const status = url.searchParams.get("status");
   const todos = await getTodos(q, status);
-  return { todos, q };
+  return { todos, q, status };
 };
 
 export async function action({request}: ActionFunctionArgs) {

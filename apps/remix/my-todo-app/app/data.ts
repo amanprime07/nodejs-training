@@ -3,6 +3,7 @@ import { NewTodo, UpdateTodo } from "../drizzle/schema";
 
 const todoDao = new TodoDao();
 
+// TODO: implement search
 export async function getTodos(query?: string | null, status?: string | null) {
   const todos = await todoDao.getAllTodos(status === "complete");
   return todos;
