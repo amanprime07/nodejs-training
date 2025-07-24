@@ -3,31 +3,35 @@ import { db } from "../drizzle/db";
 import { NewTodo, Todo, todos, UpdateTodo } from "../drizzle/schema";
 import { desc, eq } from "drizzle-orm";
 
-export async function getAllTodos(completed: boolean = false): Promise<Todo[]> {
-  return await db
-    .select()
-    .from(todos)
-    .where(eq(todos.completed, completed))
-    .orderBy(desc(todos.createdAt));
-}
+export class TodoDao {
+  constructor(private dbInstance = db) {}
 
-export async function getTodoById(id: number) {
-  invariant(id, "Id cannot be null");
-  const todo = await db.query.todos.findFirst({
-    where: (users, { eq }) => eq(users.id, id),
-  });
-  return todo;
-}
+  async getAllTodos(completed: boolean = false): Promise<Todo[]> {
+    return await this.dbInstance
+      .select()
+      .from(todos)
+      .where(eq(todos.completed, completed))
+      .orderBy(desc(todos.createdAt));
+  }
 
-export async function insertTodo(todo: NewTodo) {
-  const insert =  await db.insert(todos).values(todo).returning();
-  return insert[0];
-}
+  async getTodoById(id: number) {
+    invariant(id, "Id cannot be null");
+    const todo = await this.dbInstance.query.todos.findFirst({
+      where: (users, { eq }) => eq(users.id, id),
+    });
+    return todo;
+  }
 
-export async function updateTodoById(id:number, updates: UpdateTodo) {
-  await db.update(todos).set(updates).where(eq(todos.id, id));
-}
+  async insertTodo(todo: NewTodo) {
+    const insert = await this.dbInstance.insert(todos).values(todo).returning();
+    return insert[0];
+  }
 
-export async function deleteTodoById(id: number) {
-  await db.delete(todos).where(eq(todos.id, id));
+  async updateTodoById(id: number, updates: UpdateTodo) {
+    await this.dbInstance.update(todos).set(updates).where(eq(todos.id, id));
+  }
+
+  async deleteTodoById(id: number) {
+    await this.dbInstance.delete(todos).where(eq(todos.id, id));
+  }
 }

@@ -59,7 +59,7 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <div id="sidebar">
+        <div data-testid="sidebar" id="sidebar">
           <h1>Todos</h1>
           <div>
             <Form
