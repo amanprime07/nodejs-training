@@ -25,6 +25,21 @@
             "request": "launch",
             "command": "node asyncAwaitUsers.js",
             "cwd": "${workspaceFolder}/async-training"
+        },
+        {
+            "name": "remix-todo-app",
+            "request": "launch",
+            "runtimeArgs": [
+                "-F",
+                "remix-todo-app",
+                "run",
+                "dev"
+            ],
+            "runtimeExecutable": "pnpm",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node"
         }
     ]
 }
